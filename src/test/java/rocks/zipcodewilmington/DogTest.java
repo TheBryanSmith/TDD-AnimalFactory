@@ -2,7 +2,12 @@ package rocks.zipcodewilmington;
 
 import org.junit.Assert;
 import org.junit.Test;
+import rocks.zipcodewilmington.animals.Animal;
+import rocks.zipcodewilmington.animals.Cat;
 import rocks.zipcodewilmington.animals.Dog;
+import rocks.zipcodewilmington.animals.Mammal;
+
+import java.util.Date;
 
 /**
  * @author leon on 4/19/18.
@@ -28,4 +33,64 @@ public class DogTest {
         String dogName = dog.getName();
         Assert.assertEquals(dogName, givenName);
     }
+
+        @Test
+        public void testBirthDate(){
+        Dog dog = new Dog();
+        Date expected = new Date();
+            dog.setBirthDate(expected);
+
+        Date actual = dog.getBirthDate();
+        Assert.assertEquals(actual,expected);
+        }
+
+        @Test
+    public void testIntegerId(){
+        Dog dog = new Dog();
+        Integer expected = 0;
+        Integer actual = dog.getId();
+
+        Assert.assertEquals(expected,actual);
+
+
+        }
+
+    @Test
+    public void testSpeak(){
+        Dog dog = new Dog();
+        dog.speak();
+        String actual ="bark!";
+        String expected = dog.speak();
+        Assert.assertEquals(actual,expected);
+    }
+
+    @Test
+    public void testEat(){
+        Dog dog = new Dog();
+        dog.eat(new Food("T-Bone steak"));
+
+        Integer expected = 1;
+        Assert.assertEquals(expected,dog.getNumberOfMealsEaten());
+    }
+
+    @Test
+    public void testGetID(){
+        Dog dog = new Dog();
+        Integer expected = 0;
+        Integer actual = dog.getId();
+        Assert.assertEquals(expected,actual);
+    }
+
+    @Test
+    public void inheritanceCheckAnimales(){
+        Dog dog = new Dog();
+        Assert.assertTrue(dog instanceof Animal);
+    }
+
+    @Test
+    public void inheritanceCheckMammal(){
+        Cat dog = new Cat();
+        Assert.assertTrue(dog instanceof Mammal);
+    }
+
 }
