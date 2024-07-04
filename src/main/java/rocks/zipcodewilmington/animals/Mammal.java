@@ -27,6 +27,10 @@ public abstract class Mammal implements Animal {
 
     }
 
+    public Mammal(Integer id) {
+        this.id = id;
+    }
+
     public String getName() {
         return name;
     }
